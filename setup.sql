@@ -5,13 +5,13 @@ USE `WSA` ;
 -- Table `WSA`.`nfl`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `WSA`.`NFL` (
-	`playerID` int(11) not null, 
+	`playerID` int(11) not null auto_increment, 
 	`year` int(11) not null, 
 	`playerName` varchar(45),
 	`college` varchar(45),
 	`position` varchar(45),
-	`height` float(11) not null, 
-	`weight` float(11) not null, 
+	`height` float(11), 
+	`weight` float(11), 
 	`dash` float(11), 
 	`bench` float(11), 
 	`leap` float(11), 
