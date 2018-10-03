@@ -33,7 +33,7 @@ def clean_tuple(inserts):
      ''' This will take a tuple with empty values and replace those with python None '''
      inserts = list(inserts)
      for i in range(len(inserts)):
-        if not inserts[i]:
+        if not inserts[i] or inserts[i]==u'9.99':
             inserts[i] = None
     return tuple(inserts)
 
