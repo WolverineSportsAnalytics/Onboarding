@@ -7,6 +7,7 @@ def get_combine_data(cursor, cnx):
     ''' This will get combine data from http://nflcombineresults.com/nflcombinedata.php 
     and place that data into a table named WSA.nfl on the local host
     Takes a mysql connector cursor and connection object as parameters'''
+    
 
     return None
 
@@ -18,6 +19,7 @@ def main():
             password="")                                                                                                               
     cursor = cnx.cursor()
 
+    clear_table(cursor, cnx)
     get_combine_data(cursor, cnx)
 
     # testing section don't edit
@@ -27,6 +29,13 @@ def main():
         print "Testing failed with error:" 
         print e
 
+def clean_tuple(inserts):
+     ''' This will take a tuple with empty values and replace those with python None '''
+     inserts = list(inserts)
+     for i in range(len(inserts)):
+        if not inserts[i]:
+            inserts[i] = None
+    return tuple(inserts)
 
 def testing_data(cursor, cnx):
     ''' This is just a quick test to see if the first row of the database is correct '''
